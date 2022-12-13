@@ -1,12 +1,11 @@
 const form = document.querySelector(`.login-form`);
+
 form.addEventListener('submit', onFormSubmit);
 console.log(form);
 
 function onFormSubmit(event) {
     event.preventDefault();
      
-    const formData = new FormData(event.currentTarget);
-
     const {
         elements: { email, password }
     } = event.currentTarget;
@@ -15,13 +14,16 @@ function onFormSubmit(event) {
         return alert("All form fields must be completed");
     }
 
+     const newObject = {
+       email: email.value,
+       password: password.value,
+     };
+
+
     event.currentTarget.reset(); 
-    
-    formData.forEach((value, nameY) => {
-        console.log(`onFormSubmit->name`, nameY);
-        console.log(`onFormSubmit->value`, value);
-    });
-}
+   
+    console.log(newObject);
+    }
 
 
 
